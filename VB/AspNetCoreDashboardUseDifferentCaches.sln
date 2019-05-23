@@ -1,0 +1,24 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AspNetCoreDashboardUseDifferentCaches", "AspNetCoreDashboardUseDifferentCaches\AspNetCoreDashboardUseDifferentCaches.vbproj", "{71717234-F729-488A-A422-7D7429EC411F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71717234-F729-488A-A422-7D7429EC411F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71717234-F729-488A-A422-7D7429EC411F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71717234-F729-488A-A422-7D7429EC411F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71717234-F729-488A-A422-7D7429EC411F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F70BAB7A-8FA8-452B-A7BC-BF796D1DED76}
+	EndGlobalSection
+EndGlobal
