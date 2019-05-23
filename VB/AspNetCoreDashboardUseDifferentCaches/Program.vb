@@ -1,12 +1,5 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.IO
-Imports System.Linq
-Imports System.Threading.Tasks
-Imports Microsoft.AspNetCore
+﻿Imports Microsoft.AspNetCore
 Imports Microsoft.AspNetCore.Hosting
-Imports Microsoft.Extensions.Configuration
-Imports Microsoft.Extensions.Logging
 
 Namespace AspNetCoreDashboardUseDifferentCaches
 	Public Class Program

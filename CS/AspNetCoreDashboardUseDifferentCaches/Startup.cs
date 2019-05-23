@@ -13,7 +13,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using System;
 
-namespace AspNetCoreDashboardUseDifferentCaches {
+namespace AspNetCoreDashboardUseDifferentCaches
+{
     public class Startup {
         public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment) {
             Configuration = configuration;
@@ -67,13 +68,6 @@ namespace AspNetCoreDashboardUseDifferentCaches {
                     // Specifies a unique cache parameter.
                     configurator.CustomParameters += (sender,e) => {
                         e.Parameters.Add(new DashboardParameter("UniqueCacheParam", typeof(Guid), serviceProvider.GetService<CacheManager>().UniqueCacheParam));
-                    };
-
-                    // Configures data reloading timeout.
-                    configurator.ConfigureDataReloadingTimeout += (s,e) => {
-                        if(e.DashboardId == "dashboard1") {
-                            e.DataReloadingTimeout = new TimeSpan(1,0,0);
-                        }
                     };
                 });
 

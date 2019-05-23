@@ -1,8 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Threading.Tasks
-Imports Microsoft.AspNetCore.Mvc
+﻿Imports Microsoft.AspNetCore.Mvc
 
 ' For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

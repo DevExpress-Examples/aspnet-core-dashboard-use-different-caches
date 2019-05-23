@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AspNetCoreDashboardUseDifferentCaches {
+namespace AspNetCoreDashboardUseDifferentCaches
+{
     public class CacheManager {
         const string SessionKey = "UniqueCacheParam";
         protected IHttpContextAccessor HttpContextAccessor { get; }

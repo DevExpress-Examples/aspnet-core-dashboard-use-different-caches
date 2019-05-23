@@ -1,8 +1,4 @@
 ﻿Imports Microsoft.AspNetCore.Http
-Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Threading.Tasks
 
 Namespace AspNetCoreDashboardUseDifferentCaches
 	Public Class CacheManager

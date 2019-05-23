@@ -11,7 +11,6 @@ Imports Microsoft.Extensions.Configuration
 Imports Microsoft.Extensions.DependencyInjection
 Imports Microsoft.Extensions.DependencyInjection.Extensions
 Imports Microsoft.Extensions.FileProviders
-Imports System
 
 Namespace AspNetCoreDashboardUseDifferentCaches
 	Public Class Startup
