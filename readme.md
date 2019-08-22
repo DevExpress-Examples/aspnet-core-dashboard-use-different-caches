@@ -6,6 +6,9 @@ _Files to look at:_
 - [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs) (VB: [CacheManager.vb](/VB/AspNetCoreDashboardUseDifferentCaches/CacheManager.vb))
 
 # How to Reset the Cache Forcedly in ASP.NET Core Dashboard
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/188187035/)**
+<!-- run online end -->
 
 To refresh the data source cache on the server side, pass a unique parameter value to the [DashboardConfigurator.CustomParameters](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.CustomParameters) event.
 
