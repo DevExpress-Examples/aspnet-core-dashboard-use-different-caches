@@ -5,10 +5,10 @@
 <!-- default badges end -->
 _Files to look at:_
 
-- [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Pages/Index.cshtml) (VB: [Index.cshtml](/VB/AspNetCoreDashboardUseDifferentCaches/Pages/Index.cshtml))
-- [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/HomeController.cs) (VB: [HomeController.vb](/VB/AspNetCoreDashboardUseDifferentCaches/HomeController.vb))
-- [Startup.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Startup.cs) (VB: [Startup.vb](/VB/AspNetCoreDashboardUseDifferentCaches/Startup.vb))
-- [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs) (VB: [CacheManager.vb](/VB/AspNetCoreDashboardUseDifferentCaches/CacheManager.vb))
+- [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Pages/Index.cshtml)
+- [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/HomeController.cs)
+- [Startup.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Startup.cs)
+- [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs)
 
 # How to Reset the Cache Forcedly in ASP.NET Core Dashboard
 <!-- run online -->
