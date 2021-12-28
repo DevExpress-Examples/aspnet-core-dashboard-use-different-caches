@@ -5,8 +5,8 @@
 <!-- default badges end -->
 _Files to look at:_
 
-- [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Pages/Index.cshtml)
-- [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/HomeController.cs)
+- [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Home/Index.cshtml)
+- [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Controllers/HomeController.cs)
 - [Startup.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Startup.cs)
 - [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs)
 
