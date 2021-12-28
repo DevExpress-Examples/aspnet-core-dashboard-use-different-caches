@@ -2,7 +2,6 @@ using DevExpress.AspNetCore;
 using DevExpress.DashboardAspNetCore;
 using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
-using DevExpress.DataAccess.Excel;
 using DevExpress.DataAccess.Sql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,12 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using System;
 
-namespace AspNetCoreDashboardUseDifferentCaches
-{
+namespace AspNetCoreDashboardUseDifferentCaches {
     public class Startup {
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment) {
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment) {
             Configuration = configuration;
             FileProvider = hostingEnvironment.ContentRootFileProvider;
             DashboardExportSettings.CompatibilityMode = DashboardExportCompatibilityMode.Restricted;
@@ -28,7 +27,9 @@ namespace AspNetCoreDashboardUseDifferentCaches
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services
-                .AddMvc();
+                .AddResponseCompression()
+                .AddDevExpressControls()
+                .AddRazorPages();
 
             services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
                 DashboardConfigurator configurator = new DashboardConfigurator();
@@ -49,23 +50,7 @@ namespace AspNetCoreDashboardUseDifferentCaches
                 sqlDataSource.Queries.Add(query);
                 dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml());
 
-                // Registers an Object data source.
-                DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source");
-                dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml());
-
-                // Registers an Excel data source.
-                DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
-                excelDataSource.FileName = FileProvider.GetFileInfo("Data/Sales.xlsx").PhysicalPath;
-                excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
-                dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
-
                 configurator.SetDataSourceStorage(dataSourceStorage);
-
-                configurator.DataLoading += (s, e) => {
-                    if(e.DataSourceName == "Object Data Source") {
-                        e.Data = Invoices.CreateData();
-                    }
-                };
 
                 // Specifies a unique cache parameter.
                 configurator.CustomParameters += (sender, e) => {
@@ -75,32 +60,33 @@ namespace AspNetCoreDashboardUseDifferentCaches
                 return configurator;
             });
 
-
-            services.AddDevExpressControls(options => options.Resources = ResourcesType.ThirdParty | ResourcesType.DevExtreme);
-
             services.AddDistributedMemoryCache().AddSession();
-            services.TryAddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<CacheManager>(serviceProvider => new CacheManager(serviceProvider.GetService<IHttpContextAccessor>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            app.UseDevExpressControls();
-            if(env.IsDevelopment()) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            }
-            else {
+            } else {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
+
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseSession();
+            app.UseDevExpressControls();
+            app.UseRouting();
 
-            app.UseMvc(routes => {
-                routes.MapDashboardRoute("api/dashboard", "DefaultDashboard");
-                routes.MapRoute(
+            app.UseEndpoints(endpoints => {
+                // Maps the dashboard route.
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboards", "DefaultDashboard");
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
