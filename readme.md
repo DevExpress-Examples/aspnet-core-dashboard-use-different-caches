@@ -20,6 +20,7 @@ To refresh the data source cache **on the client**, you can call the [DashboardC
 ## Files to Look At
 
 - [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Home/Index.cshtml)
+- [_Layout.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Shared/_Layout.cshtml)
 - [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Controllers/HomeController.cs)
 - [Startup.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Startup.cs)
 - [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs)
