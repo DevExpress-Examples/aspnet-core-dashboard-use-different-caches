@@ -3,24 +3,32 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T828694)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-_Files to look at:_
+
+# Dashboard for ASP.NET Core - How to Reset the Data Source Cache
+
+The following example shows how you can manage the cache in the ASP.NET Core Dashboard control.
+
+To refresh the data source cache **on the server**, pass a unique parameter value to the [DashboardConfigurator.CustomParameters](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.CustomParameters) event. You can store the unique GUID value within a session as a parameter and update its value in your code when it is necessary to refresh the cache.
+
+To refresh the data source cache **on the client**, you can call the [DashboardControl.reloadData](https://docs.devexpress.com/Dashboard/js-DevExpress.Dashboard.DashboardControl#js_DevExpress_Dashboard_DashboardControl_reloadData) client method.
+
+- Click **Refresh Cache (Server)** to force the cache reset on the server.
+- Click **Refresh Cache (Client)** to force the cache reset using the client API.
+
+![](reset-cache-buttons.png)
+
+## Files to Look At
 
 - [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Home/Index.cshtml)
 - [HomeController.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Controllers/HomeController.cs)
 - [Startup.cs](/CS/AspNetCoreDashboardUseDifferentCaches/Startup.cs)
 - [CacheManager.cs](/CS/AspNetCoreDashboardUseDifferentCaches/CacheManager.cs)
 
-# How to Reset the Cache Forcedly in ASP.NET Core Dashboard
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/188187035/)**
-<!-- run online end -->
+## Documentation
 
-To refresh the data source cache on the server side, pass a unique parameter value to the [DashboardConfigurator.CustomParameters](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.CustomParameters) event.
+- [Manage an In-Memory Data Cache](https://docs.devexpress.com/Dashboard/400983/web-dashboard/dashboard-backend/manage-an-in-memory-data-cache)
 
-For instance, you can store a unique GUID value within a session as a parameter and update its value in your code when it is necessary to refresh the cache.
+## More Examples
 
-Use the **Refresh Cache** button to update the cache forcedly.
-
-Note that you can refresh the data source cache on the client side. For this, call the [DashboardControl.reloadData](https://docs.devexpress.com/Dashboard/js-DevExpress.Dashboard.DashboardControl#js_DevExpress_Dashboard_DashboardControl_reloadData) client method.
-
-See [Manage an In-Memory Data Cache](https://docs.devexpress.com/Dashboard/400987) for details.
+* [Dashboard for Web Forms - How to Reset the Data Source Cache](https://github.com/DevExpress-Examples/web-forms-dashboard-use-different-caches)
+* [Dashboard for MVC - How to Reset the Data Source Cache](https://github.com/DevExpress-Examples/mvc-dashboard-use-different-caches)
