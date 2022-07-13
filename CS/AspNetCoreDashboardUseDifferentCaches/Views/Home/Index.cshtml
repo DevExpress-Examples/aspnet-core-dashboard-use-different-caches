@@ -1,9 +1,10 @@
 @page
 
-<button onclick="$.ajax({url: '@Url.Action("Refresh")'})">Reset Cache</button>
+<button onclick="reloadOnServer()">Reset Cache (Server)</button>
+<button onclick="reloadOnClient()">Reset Cache (Client)</button>
 
 <div style="position: absolute; left: 0; top: 40px; right: 0; bottom: 0; border-top: 1px solid #cfcfcf">
-@(Html.DevExpress().Dashboard("dashboardControl1")
+    @(Html.DevExpress().Dashboard("dashboardControl1")
     .ControllerName("DefaultDashboard")
     .Width("100%")
     .Height("100%")
