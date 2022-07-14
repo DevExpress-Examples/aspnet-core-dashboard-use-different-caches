@@ -5,9 +5,6 @@
 <!-- default badges end -->
 
 # Dashboard for ASP.NET Core - How to Reset the Data Source Cache
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/188187035/)**
-<!-- run online end -->
 
 The following example shows how you can manage the cache in the ASP.NET Core Dashboard control.
 
