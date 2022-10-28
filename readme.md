@@ -17,7 +17,7 @@ To refresh the data source cache **on the client**, you can call the [DashboardC
 
 ![](reset-cache-buttons.png)
 
-## Files to Look At
+## Files to Review
 
 - [Index.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Home/Index.cshtml)
 - [_Layout.cshtml](/CS/AspNetCoreDashboardUseDifferentCaches/Views/Shared/_Layout.cshtml#L19-L31)
