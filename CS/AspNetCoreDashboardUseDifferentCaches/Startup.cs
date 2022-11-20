@@ -83,7 +83,7 @@ namespace AspNetCoreDashboardUseDifferentCaches {
 
             app.UseEndpoints(endpoints => {
                 // Maps the dashboard route.
-                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboards", "DefaultDashboard");
+                endpoints.MapDashboardRoute("api/dashboards", "DefaultDashboard");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
