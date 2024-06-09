@@ -8,7 +8,7 @@
 
 The following example shows how you can manage the cache in the ASP.NET Core Dashboard control.
 
-To refresh the data source cache **on the server**, pass a unique parameter value to the [DashboardConfigurator.CustomParameters](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.CustomParameters) event. You can store the unique GUID value within a session as a parameter and update its value in your code when it is necessary to refresh the cache.
+To refresh the data source cache **on the server**, add a unique value to the [CustomData](http://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.IDataSourceCacheKey.CustomData) field in the [DashboardConfigurator.DataSourceCacheKeyCreated](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.DataSourceCacheKeyCreated) event handler. You can store the unique GUID value within a session as a parameter and update its value in your code when it is necessary to refresh the cache.
 
 To refresh the data source cache **on the client**, you can call the [DashboardControl.reloadData](https://docs.devexpress.com/Dashboard/js-DevExpress.Dashboard.DashboardControl#js_DevExpress_Dashboard_DashboardControl_reloadData) client method.
 

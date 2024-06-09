@@ -53,8 +53,8 @@ namespace AspNetCoreDashboardUseDifferentCaches {
                 configurator.SetDataSourceStorage(dataSourceStorage);
 
                 // Specifies a unique cache parameter.
-                configurator.CustomParameters += (sender, e) => {
-                    e.Parameters.Add(new DashboardParameter("UniqueCacheParam", typeof(Guid), serviceProvider.GetService<CacheManager>().UniqueCacheParam));
+                configurator.DataSourceCacheKeyCreated += (sender, e) => {
+                    e.Key.CustomData.Add("SessionIs",  serviceProvider.GetService<CacheManager>().UniqueCacheParam.ToString());
                 };
 
                 return configurator;
