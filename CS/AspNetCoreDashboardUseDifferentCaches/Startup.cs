@@ -54,7 +54,7 @@ namespace AspNetCoreDashboardUseDifferentCaches {
 
                 // Specifies a unique cache parameter.
                 configurator.DataSourceCacheKeyCreated += (sender, e) => {
-                    e.Key.CustomData.Add("SessionIs",  serviceProvider.GetService<CacheManager>().UniqueCacheParam.ToString());
+                    e.Key.CustomData.Add("SessionId",  serviceProvider.GetService<CacheManager>().UniqueCacheParam.ToString());
                 };
 
                 return configurator;
